@@ -1,0 +1,59 @@
+.App {
+  text-align: center;
+}
+
+body {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  height: 80vh;
+}
+
+form {
+  padding: 2.5em;
+  border-radius: 5px;
+  background-image: linear-gradient(#337cf2, rgba(255, 0, 0, 0.5));
+}
+
+label,
+input {
+  padding: 0.5em;
+}
+
+input {
+  margin: 0.3em;
+}
+
+input::placeholder {
+  text-align: center;
+}
+
+input:focus {
+  border-radius: 5px;
+}
+
+input[type="submit"] {
+  width: 12em;
+  height: 3em;
+  border-radius: 5px;
+  border: none;
+  font-weight: 500;
+}
+
+button {
+  background-color: whitesmoke;
+  border-width: 0.1em;
+  border: 0.2px solid lightslategray;
+  border-image-width: 5px;
+  font-size: 2em;
+  transition: .3s;
+}
+
+button:hover {
+  transform: rotateY(360deg);
+}
+span{
+  font-size: 1.2em;
+}

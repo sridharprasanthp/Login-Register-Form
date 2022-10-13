@@ -12,7 +12,7 @@ body {
 }
 
 form {
-  padding: 2.5em;
+  padding: 1.5em;
   border-radius: 5px;
   background-image: linear-gradient(#337cf2, rgba(255, 0, 0, 0.5));
 }
@@ -24,13 +24,15 @@ input {
 
 input {
   margin: 0.3em;
+  text-align: center;
 }
 
 input::placeholder {
   text-align: center;
 }
 
-input:focus {
+input:hover,
+:focus {
   border-radius: 5px;
 }
 
@@ -39,21 +41,22 @@ input[type="submit"] {
   height: 3em;
   border-radius: 5px;
   border: none;
+  font-size: 1em;
   font-weight: 500;
 }
 
 button {
   background-color: whitesmoke;
-  border-width: 0.1em;
-  border: 0.2px solid lightslategray;
-  border-image-width: 5px;
-  font-size: 2em;
-  transition: .3s;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.5em;
+  transition: .5s;
 }
 
 button:hover {
   transform: rotateY(360deg);
 }
-span{
+
+span {
   font-size: 1.2em;
 }

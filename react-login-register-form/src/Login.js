@@ -5,6 +5,7 @@ function Login(props) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isValid, setIsvalid] = useState(true);
+    const [state, setState] = useState([])
 
     function submitHandler(e) {
         e.preventDefault();
@@ -17,28 +18,50 @@ function Login(props) {
                 email: email,
                 password: password
             }
-            axios.post('http://localhost:3001/Login', logindata).then(res => alert(res.data));
+            axios.post('http://localhost:3001/Login', logindata).then(res => setState(res.data));
             setEmail("");
-            setPassword("")
+            setPassword("");
         }
     }
     return (
         <div>
 
             <form onSubmit={submitHandler}>
-                <h1>Login</h1>
+                <h1>Sign In</h1>
                 <div>
-                    <input type="email" contextMenu='return false' value={email} onChange={(e) => { setEmail(e.target.value) }} placeholder="Email Address" style={{ borderColor: isValid ? "#ffff" : "#ff0000" }} />
+                    <input type="email"
+                        value={email}
+                        onChange={(e) => {
+                            if (email.length > 0) {
+                                setIsvalid(true)
+                            }
+                            setEmail(e.target.value)
+                        }}
+                        placeholder="Email Address"
+                        style={{ borderColor: isValid ? "#ffff" : "#ff0000" }} />
                 </div>
                 <div>
-                    <input type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} placeholder="Password" style={{ borderColor: isValid ? "#ffff" : "#ff0000" }} />
+                    <input type="password"
+                        value={password}
+                        onChange={(e) => {
+                            if (password.length > 0) {
+                                setIsvalid(true)
+                            }
+                            setPassword(e.target.value)
+                        }}
+                        placeholder="Password"
+                        style={{ borderColor: isValid ? "#ffff" : "#ff0000" }} />
                 </div>
-            <hr/>
-                <input type='submit' value='Login' style={{backgroundColor:"#377df1",color:"white"}} />
+                <div>
+                    <h5 style={{ color: "red", fontSize: "1em" }}>{state}</h5>
+                </div>
+                <input type='submit'
+                    value='Login'
+                    style={{ backgroundColor: "#377df1", color: "white" }} />
             </form>
             <br />
-            <span>Create Account</span> &nbsp;  &nbsp; &nbsp;
-            <button onClick={props.change}>Next</button>
+            <span>Create an account</span> &nbsp;  &nbsp; &nbsp;
+            <button onClick={props.change} style={{ backgroundColor: "#377df1", color: "white" }}>Next</button>
         </div>
     )
 }
